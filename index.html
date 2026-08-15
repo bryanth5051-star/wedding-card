@@ -3,33 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>พลอย & กันต์ | การ์ดแต่งงาน</title>
+<title>ฮัซวานี &amp; บัยฮากีย์ | Wedding</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Trirong:wght@300;400;600;700&family=Sarabun:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Charmonman:wght@400;700&family=Trirong:wght@300;400;500;600&family=Sarabun:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F7F0E3;
-    --paper-deep:#EFE4CE;
-    --ink:#2A211C;
-    --maroon:#5C2A2A;
-    --jade:#3F5B4E;
+    --rose:#B5747E;
+    --rose-deep:#9C5B66;
+    --maroon:#7A2A2A;
     --gold:#B8862C;
-    --gold-light:#E4C878;
+    --gold-light:#E7CE8C;
+    --cream:#FBF3EA;
+    --ink:#3A2420;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    background:var(--paper);
+    background:var(--cream);
     color:var(--ink);
     font-family:'Sarabun',sans-serif;
     font-weight:300;
     overflow-x:hidden;
   }
-  .scroller{
-    height:100vh;
-    overflow-y:scroll;
-    scroll-snap-type:y mandatory;
-  }
+  .scroller{height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory;}
   section{
     min-height:100vh;
     scroll-snap-align:start;
@@ -38,460 +34,334 @@
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    padding:64px 24px;
+    padding:56px 22px;
     text-align:center;
   }
+  .script{font-family:'Charmonman',cursive;}
   .display{font-family:'Trirong',serif;}
   .accent-num{font-family:'Cormorant Garamond',serif;}
 
-  /* paper grain texture */
-  body::before{
-    content:"";
-    position:fixed;inset:0;
-    pointer-events:none;
-    z-index:1;
-    opacity:0.05;
-    background-image:radial-gradient(circle at 1px 1px, var(--ink) 1px, transparent 0);
-    background-size:14px 14px;
-  }
-
-  /* signature: sai sin thread — fixed vertical thread with sliding knot, tracks scroll */
-  .thread-rail{
-    position:fixed;
-    top:0; bottom:0; right:18px;
-    width:2px;
-    background:linear-gradient(to bottom, transparent, var(--gold-light) 8%, var(--gold-light) 92%, transparent);
-    z-index:50;
-    opacity:0.55;
-  }
-  .thread-knot{
-    position:fixed;
-    right:10px;
-    width:18px;height:18px;
-    z-index:51;
-    transform:translateY(-50%);
-    transition:top 0.08s linear;
-  }
-  .thread-knot svg{width:100%;height:100%;}
+  /* ---------- decorative floral corner (SVG, line-art) ---------- */
+  .corner{position:absolute;width:110px;height:110px;opacity:0.55;}
+  .corner.tl{top:18px;left:10px;}
+  .corner.tr{top:18px;right:10px;transform:scaleX(-1);}
+  .corner.bl{bottom:18px;left:10px;transform:scaleY(-1);}
+  .corner.br{bottom:18px;right:10px;transform:scale(-1,-1);}
 
   /* ---------- HERO ---------- */
-  .hero{
+  .hero{background:linear-gradient(180deg, var(--rose) 0%, var(--rose-deep) 100%);color:var(--cream);}
+  .hero .eyebrow{
+    letter-spacing:0.35em;font-size:11px;text-transform:uppercase;
+    opacity:0.85;margin-bottom:18px;
+  }
+  .hero-names{font-size:clamp(30px,9vw,46px);line-height:1.5;}
+  .hero-names .th{font-weight:700;}
+  .hero-names .en{display:block;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.35em;letter-spacing:0.08em;opacity:0.85;margin-bottom:2px;}
+  .hero-amp{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-light);font-size:0.6em;display:block;margin:6px 0;}
+
+  .seal-band{
+    width:100%;height:120px;
     background:
-      radial-gradient(ellipse at 50% 30%, rgba(184,134,44,0.10), transparent 60%),
-      var(--paper);
-  }
-  .hero-ring{
-    width:min(72vw,340px);
-    height:min(72vw,340px);
-    border:1px solid var(--gold);
-    border-radius:50%;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
+      radial-gradient(circle at 50% 50%, var(--rose-deep) 0 34px, transparent 35px),
+      repeating-linear-gradient(100deg, #d9a7ae 0 40px, #e6bfc4 40px 80px, #cf8c94 80px 120px);
+    display:flex;align-items:center;justify-content:center;
     position:relative;
-    animation:ringIn 1.4s ease-out both;
+    margin:36px 0 0;
   }
-  .hero-ring::before{
-    content:"";
-    position:absolute;
-    inset:14px;
-    border:1px solid rgba(184,134,44,0.35);
-    border-radius:50%;
-  }
-  @keyframes ringIn{
-    from{opacity:0; transform:scale(0.85);}
-    to{opacity:1; transform:scale(1);}
-  }
-  .eyebrow{
-    font-family:'Sarabun',sans-serif;
-    letter-spacing:0.35em;
-    font-size:11px;
-    color:var(--maroon);
-    text-transform:uppercase;
-    margin-bottom:10px;
-  }
-  .hero-names{
-    font-size:clamp(28px,7vw,44px);
-    font-weight:600;
-    line-height:1.3;
-    color:var(--ink);
-  }
-  .hero-names .amp{
-    display:block;
-    font-family:'Cormorant Garamond',serif;
-    font-style:italic;
-    color:var(--gold);
-    font-size:0.6em;
-    margin:2px 0;
+  .seal{
+    width:64px;height:64px;border-radius:50%;
+    background:var(--maroon);
+    border:3px solid var(--gold-light);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--gold-light);
+    font-family:'Charmonman',cursive;font-size:26px;
+    box-shadow:0 0 0 5px rgba(251,243,234,0.15);
   }
   .hero-date{
-    margin-top:12px;
-    font-size:14px;
-    letter-spacing:0.08em;
-    color:var(--jade);
-  }
-  .scroll-hint{
-    position:absolute;
-    bottom:36px;
-    font-size:11px;
-    letter-spacing:0.25em;
-    color:var(--ink);
-    opacity:0.5;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:6px;
-  }
-  .scroll-hint .line{
-    width:1px;height:28px;
-    background:var(--ink);
-    opacity:0.4;
-    animation:pulse 1.8s ease-in-out infinite;
-  }
-  @keyframes pulse{0%,100%{transform:scaleY(0.4);opacity:0.2;}50%{transform:scaleY(1);opacity:0.6;}}
-
-  /* ---------- COUNTDOWN ---------- */
-  .countdown-wrap .eyebrow{margin-bottom:22px;}
-  .countdown{
-    display:flex;
-    gap:clamp(14px,4vw,32px);
-  }
-  .cd-cell{display:flex;flex-direction:column;align-items:center;}
-  .cd-num{
+    margin-top:30px;
     font-family:'Cormorant Garamond',serif;
-    font-size:clamp(38px,10vw,64px);
-    font-weight:500;
-    color:var(--maroon);
-    line-height:1;
-  }
-  .cd-label{
-    margin-top:8px;
-    font-size:12px;
-    color:var(--ink);
-    opacity:0.6;
-    letter-spacing:0.05em;
-  }
-  .cd-sep{
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(28px,7vw,48px);
-    color:var(--gold-light);
-    align-self:flex-start;
-    margin-top:2px;
-  }
-  .quote{
-    margin-top:64px;
-    max-width:340px;
-    font-family:'Trirong',serif;
-    font-weight:300;
-    font-style:italic;
-    font-size:16px;
-    line-height:2;
-    color:var(--jade);
-  }
-
-  /* ---------- SCHEDULE ---------- */
-  .schedule{
-    background:var(--paper-deep);
-    align-items:stretch;
-    text-align:left;
-  }
-  .section-head{text-align:center;margin-bottom:48px;}
-  .section-title{
-    font-size:clamp(22px,5vw,30px);
-    font-weight:600;
-  }
-  .timeline{
-    max-width:420px;
-    margin:0 auto;
-    position:relative;
-  }
-  .timeline::before{
-    content:"";
-    position:absolute;
-    left:9px; top:6px; bottom:6px;
-    width:1px;
-    background:repeating-linear-gradient(to bottom, var(--gold) 0 4px, transparent 4px 8px);
-  }
-  .t-item{
-    position:relative;
-    padding:0 0 40px 40px;
-  }
-  .t-item:last-child{padding-bottom:0;}
-  .t-item::before{
-    content:"";
-    position:absolute;
-    left:0; top:4px;
-    width:19px;height:19px;
-    border-radius:50%;
-    background:var(--paper-deep);
-    border:2px solid var(--gold);
-  }
-  .t-time{
-    font-family:'Cormorant Garamond',serif;
-    font-size:22px;
-    color:var(--maroon);
-    font-weight:600;
-  }
-  .t-title{
-    font-family:'Trirong',serif;
-    font-size:17px;
-    font-weight:500;
-    margin-top:2px;
-  }
-  .t-desc{
-    font-size:13px;
-    opacity:0.65;
-    margin-top:4px;
-    line-height:1.7;
-  }
-
-  /* ---------- LOCATION ---------- */
-  .location .map-box{
-    width:min(88vw,380px);
-    height:200px;
-    border:1px solid var(--gold);
-    border-radius:4px;
-    background:
-      linear-gradient(135deg, rgba(63,91,78,0.12), rgba(184,134,44,0.10)),
-      repeating-linear-gradient(45deg, rgba(42,33,28,0.04) 0 12px, transparent 12px 24px);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    position:relative;
-    margin-bottom:24px;
-  }
-  .map-pin{width:26px;height:26px;}
-  .venue-name{font-family:'Trirong',serif;font-size:19px;font-weight:600;}
-  .venue-addr{font-size:13px;opacity:0.65;margin-top:6px;max-width:280px;line-height:1.8;}
-  .map-btn{
-    margin-top:20px;
-    display:inline-block;
-    padding:11px 28px;
-    border:1px solid var(--maroon);
-    border-radius:100px;
-    color:var(--maroon);
-    font-size:13px;
-    letter-spacing:0.04em;
-    text-decoration:none;
-  }
-
-  /* ---------- GALLERY ---------- */
-  .gallery{background:var(--paper-deep);}
-  .grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:8px;
-    max-width:420px;
-    width:100%;
-  }
-  .grid div{
-    aspect-ratio:1;
+    font-size:clamp(24px,6vw,32px);
+    letter-spacing:0.15em;
+    color:var(--rose-deep);
+    background:var(--cream);
+    padding:14px 30px;
     border-radius:2px;
   }
-  .grid div:nth-child(1){background:linear-gradient(135deg,#c9a04a,#e4c878);}
-  .grid div:nth-child(2){background:linear-gradient(135deg,#5C2A2A,#8a4a4a);grid-row:span 2;}
-  .grid div:nth-child(3){background:linear-gradient(135deg,#3F5B4E,#6b8f7f);}
-  .grid div:nth-child(4){background:linear-gradient(135deg,#e4c878,#f2e2b8);}
-  .grid div:nth-child(5){background:linear-gradient(135deg,#8a4a4a,#c9a04a);}
-  .grid div:nth-child(6){background:linear-gradient(135deg,#6b8f7f,#3F5B4E);}
-  .gallery-note{font-size:12px;opacity:0.5;margin-top:16px;}
+  .hero-date-wrap{background:var(--cream);width:100%;padding:34px 0 10px;display:flex;justify-content:center;}
+
+  /* ---------- QURAN QUOTE ---------- */
+  .quote-sec{background:var(--cream);}
+  .arch{
+    width:min(84vw,340px);
+    border:1px solid var(--gold);
+    border-radius:140px 140px 8px 8px;
+    padding:44px 24px 34px;
+    position:relative;
+  }
+  .arch::before{
+    content:"";position:absolute;inset:9px;
+    border:1px solid rgba(184,134,44,0.5);
+    border-radius:132px 132px 4px 4px;
+  }
+  .arabic-mark{
+    font-family:'Charmonman',cursive;
+    font-size:34px;color:var(--maroon);
+    margin-bottom:16px;
+  }
+  .rule{width:60px;height:1px;background:var(--gold);margin:0 auto 20px;}
+  .quote-text{
+    font-family:'Trirong',serif;
+    font-weight:300;font-size:14px;line-height:2.1;color:var(--ink);
+  }
+  .quote-src{margin-top:16px;font-size:12px;color:var(--rose-deep);letter-spacing:0.04em;}
+
+  /* ---------- GREETING ---------- */
+  .greet-sec{background:var(--cream);}
+  .greet-arabic{font-family:'Charmonman',cursive;font-size:22px;color:var(--maroon);margin-bottom:22px;}
+  .greet-lead{font-size:13px;opacity:0.8;max-width:320px;line-height:2;margin-bottom:10px;}
+  .greet-body{font-size:13px;opacity:0.7;max-width:320px;line-height:2.1;}
+
+  /* ---------- COUPLE NAMES ---------- */
+  .names-sec{background:linear-gradient(180deg,var(--rose) 0%,var(--rose-deep) 100%);color:var(--cream);}
+  .name-card{
+    width:min(78vw,300px);
+    border:1px solid var(--gold-light);
+    border-radius:150px 150px 16px 16px;
+    padding:56px 20px;
+    display:flex;flex-direction:column;
+    align-items:center;
+    gap:34px;
+  }
+  .name-block .en{font-family:'Charmonman',cursive;font-size:clamp(26px,7vw,34px);color:var(--cream);}
+  .name-block .th{font-size:13px;opacity:0.85;margin-top:4px;letter-spacing:0.04em;}
+
+  /* ---------- COUNTDOWN + CALENDAR + LOCATION ---------- */
+  .cd-sec{background:var(--cream);align-items:stretch;}
+  .cd-title{font-family:'Charmonman',cursive;font-size:34px;color:var(--rose-deep);}
+  .cd-sub{font-size:12px;opacity:0.6;margin-top:2px;margin-bottom:26px;}
+  .countdown{display:flex;gap:10px;justify-content:center;margin-bottom:40px;}
+  .cd-cell{
+    background:var(--rose);color:var(--cream);
+    width:64px;height:64px;border-radius:10px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+  }
+  .cd-num{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;}
+  .cd-label{font-size:10px;opacity:0.9;margin-top:2px;}
+
+  .date-row{display:flex;align-items:baseline;justify-content:center;gap:14px;margin-bottom:22px;}
+  .date-row .accent-num{font-size:38px;color:var(--maroon);}
+  .date-row .weekday, .date-row .year{font-size:14px;opacity:0.6;}
+
+  .cal{width:min(90vw,340px);margin:0 auto 18px;}
+  .cal-head, .cal-row{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
+  .cal-head div{font-size:11px;color:var(--rose-deep);font-weight:600;padding:4px 0;}
+  .cal-row div{font-size:12px;padding:6px 0;opacity:0.75;}
+  .cal-row div.muted{opacity:0.25;}
+  .cal-row div.today{
+    background:var(--maroon);color:var(--cream);border-radius:50%;
+    opacity:1;font-weight:600;
+  }
+  .time-banner{
+    width:100%;max-width:340px;margin:14px auto 26px;
+    background:var(--rose);color:var(--cream);
+    font-size:12px;padding:8px;border-radius:4px;
+  }
+  .venue-name{font-family:'Trirong',serif;font-size:16px;font-weight:600;color:var(--maroon);}
+  .venue-addr{font-size:12px;opacity:0.65;margin-top:6px;max-width:280px;margin-left:auto;margin-right:auto;line-height:1.8;}
+  .maps-btn{
+    display:inline-block;margin-top:18px;padding:12px 30px;
+    background:var(--rose);color:var(--cream);border-radius:30px;
+    font-size:13px;text-decoration:none;letter-spacing:0.03em;
+  }
+  .map-box{
+    width:min(88vw,340px);height:170px;margin:22px auto 0;
+    border:3px solid var(--rose);border-radius:16px;
+    background:
+      linear-gradient(135deg, rgba(181,116,126,0.15), rgba(184,134,44,0.12)),
+      repeating-linear-gradient(60deg, rgba(58,36,32,0.05) 0 10px, transparent 10px 20px);
+    display:flex;align-items:center;justify-content:center;
+  }
 
   /* ---------- GUESTBOOK ---------- */
-  .guestbook{align-items:stretch;}
-  .gb-inner{max-width:380px;margin:0 auto;width:100%;}
-  .gb-form{
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    margin-bottom:36px;
-  }
+  .gb-sec{background:linear-gradient(180deg,var(--rose) 0%,var(--rose-deep) 100%);color:var(--cream);align-items:stretch;padding-bottom:70px;}
+  .gb-inner{max-width:340px;margin:0 auto;width:100%;}
+  .envelope-icon{width:56px;height:56px;margin:0 auto 12px;}
+  .gb-title{font-family:'Charmonman',cursive;font-size:28px;}
+  .gb-sub{font-size:12px;opacity:0.85;margin-top:2px;margin-bottom:26px;}
+  .gb-form{display:flex;flex-direction:column;gap:10px;margin-bottom:22px;}
   .gb-form input, .gb-form textarea{
-    font-family:'Sarabun',sans-serif;
-    font-size:14px;
-    padding:12px 14px;
-    border:1px solid rgba(42,33,28,0.25);
-    background:transparent;
-    border-radius:3px;
-    color:var(--ink);
-    resize:none;
+    font-family:'Sarabun',sans-serif;font-size:14px;padding:13px 16px;
+    border:none;border-radius:6px;background:var(--cream);color:var(--ink);resize:none;
   }
-  .gb-form textarea{min-height:80px;}
-  .gb-form input:focus, .gb-form textarea:focus{
-    outline:none;
-    border-color:var(--gold);
-  }
+  .gb-form textarea{min-height:70px;}
+  .gb-form input:focus, .gb-form textarea:focus{outline:2px solid var(--gold-light);}
   .gb-submit{
-    padding:12px;
-    background:var(--maroon);
-    color:var(--paper);
-    border:none;
-    border-radius:3px;
-    font-family:'Sarabun',sans-serif;
-    font-size:14px;
-    letter-spacing:0.04em;
-    cursor:pointer;
+    padding:13px;background:#C23B3B;color:#fff;border:none;border-radius:6px;
+    font-family:'Sarabun',sans-serif;font-size:14px;font-weight:600;letter-spacing:0.04em;cursor:pointer;
   }
-  .gb-submit:disabled{opacity:0.5;cursor:default;}
-  .gb-list{display:flex;flex-direction:column;gap:16px;text-align:left;}
-  .gb-msg{
-    border-left:2px solid var(--gold-light);
-    padding-left:14px;
-  }
-  .gb-msg .from{font-family:'Trirong',serif;font-weight:600;font-size:14px;color:var(--maroon);}
-  .gb-msg .text{font-size:13px;opacity:0.8;margin-top:3px;line-height:1.7;}
-  .gb-empty{font-size:13px;opacity:0.5;text-align:center;}
-  .gb-status{font-size:12px;opacity:0.55;text-align:center;margin-top:10px;min-height:16px;}
+  .gb-submit:disabled{opacity:0.6;cursor:default;}
+  .gb-status{font-size:12px;opacity:0.85;text-align:center;margin-top:8px;min-height:16px;}
 
-  footer{
-    padding:32px 24px 48px;
+  .gb-count-card{
+    background:rgba(251,243,234,0.12);
+    border:1px solid rgba(251,243,234,0.35);
+    border-radius:12px;
+    padding:20px;
     text-align:center;
-    font-family:'Trirong',serif;
-    font-size:13px;
-    color:var(--maroon);
-    letter-spacing:0.04em;
+    margin-bottom:22px;
   }
+  .gb-count-label{font-size:13px;opacity:0.9;}
+  .gb-count-num{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:600;margin-top:2px;}
 
-  @media (prefers-reduced-motion: reduce){
-    *{animation:none !important; transition:none !important;}
+  .gb-list{display:flex;flex-direction:column;gap:12px;text-align:left;}
+  .gb-msg{
+    background:rgba(251,243,234,0.10);
+    border-left:2px solid var(--gold-light);
+    border-radius:4px;
+    padding:12px 14px;
   }
+  .gb-msg .from{font-family:'Trirong',serif;font-weight:600;font-size:13px;color:var(--gold-light);}
+  .gb-msg .text{font-size:13px;opacity:0.9;margin-top:3px;line-height:1.7;}
+  .gb-empty{font-size:13px;opacity:0.7;text-align:center;}
+
+  footer{padding:26px 20px 10px;text-align:center;font-family:'Charmonman',cursive;font-size:16px;opacity:0.85;}
+
+  @media (prefers-reduced-motion: reduce){*{animation:none !important; transition:none !important;}}
 </style>
 </head>
 <body>
-
-<div class="thread-rail"></div>
-<div class="thread-knot" id="threadKnot" style="top:0%;">
-  <svg viewBox="0 0 24 24" fill="none">
-    <circle cx="12" cy="12" r="6" fill="#B8862C"/>
-    <circle cx="12" cy="12" r="9" stroke="#E4C878" stroke-width="1"/>
-  </svg>
-</div>
 
 <div class="scroller" id="scroller">
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-ring">
-      <div class="eyebrow">Wedding Invitation</div>
-      <div class="hero-names">
-        พลอย
-        <span class="amp">&amp;</span>
-        กันต์
-      </div>
-      <div class="hero-date">๑๔ กุมภาพันธ์ ๒๕๗๐ · กรุงเทพฯ</div>
+    <svg class="corner tl" viewBox="0 0 100 100" fill="none"><path d="M5 5 Q30 5 30 30 Q30 50 50 50" stroke="#FBF3EA" stroke-width="1"/><circle cx="30" cy="30" r="3" fill="#E7CE8C"/></svg>
+    <svg class="corner tr" viewBox="0 0 100 100" fill="none"><path d="M5 5 Q30 5 30 30 Q30 50 50 50" stroke="#FBF3EA" stroke-width="1"/><circle cx="30" cy="30" r="3" fill="#E7CE8C"/></svg>
+    <div class="eyebrow">The Wedding Of</div>
+    <div class="hero-names">
+      <span class="en">Haswanee</span>
+      <span class="th">ฮัซวานี</span>
+      <span class="hero-amp">&amp;</span>
+      <span class="en">Baihakee</span>
+      <span class="th">บัยฮากีย์</span>
     </div>
-    <div class="scroll-hint"><span class="line"></span>เลื่อนลง</div>
+  </section>
+  <div class="seal-band"><div class="seal">฼</div></div>
+  <div class="hero-date-wrap"><div class="hero-date">18 . 10 . 2026</div></div>
+
+  <!-- QURAN QUOTE -->
+  <section class="quote-sec">
+    <svg class="corner tl" viewBox="0 0 100 100" fill="none" opacity="0.3"><path d="M10 10 Q40 10 40 40" stroke="#7A2A2A" stroke-width="1"/></svg>
+    <svg class="corner tr" viewBox="0 0 100 100" fill="none" opacity="0.3"><path d="M10 10 Q40 10 40 40" stroke="#7A2A2A" stroke-width="1"/></svg>
+    <div class="arch">
+      <div class="arabic-mark">﷽</div>
+      <div class="rule"></div>
+      <div class="quote-text">
+        "และในบรรดาเครื่องหมายของพระองค์นั้น<br>
+        คือพระองค์ทรงสร้างคู่ครองให้แก่พวกท่าน<br>
+        จากหมู่พวกท่านเอง เพื่อพวกท่านจะได้พบความสุข<br>
+        กับพวกเขา และพระองค์ทรงประทานความรัก<br>
+        (มะวัดดะฮ์) และความเมตตา (เราะห์มะฮ์)<br>
+        ให้แก่พวกท่าน แท้จริงในสิ่งเหล่านี้<br>
+        มีเครื่องหมายสำหรับผู้ที่ใคร่ครวญ"
+      </div>
+      <div class="quote-src">(อัลกุรอาน 30:21)</div>
+    </div>
   </section>
 
-  <!-- COUNTDOWN -->
-  <section class="countdown-wrap">
-    <div class="eyebrow">Counting Down</div>
+  <!-- GREETING -->
+  <section class="greet-sec">
+    <div class="greet-arabic">السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ</div>
+    <div class="greet-lead">ด้วยพระนามของอัลลอฮ์ ผู้ทรงกรุณาปรานี ผู้ทรงเมตตาเสมอ</div>
+    <div class="greet-body">
+      เราขอเชิญท่านร่วมเป็นสักขีพยาน และร่วมแบ่งปันความสุขในวันสำคัญ<br>
+      พร้อมร่วมดุอาอ์ให้การเริ่มต้นชีวิตคู่ของเรา เต็มไปด้วยความรัก<br>
+      ความเมตตา และบารอกะฮ์
+    </div>
+  </section>
+
+  <!-- COUPLE NAMES -->
+  <section class="names-sec">
+    <div class="name-card">
+      <div class="name-block">
+        <div class="en">Haswanee</div>
+        <div class="th">ฮัซวานี มะดิง</div>
+      </div>
+      <div class="name-block">
+        <div class="en">Baihakee</div>
+        <div class="th">บัยฮากีย์ กาหลง</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COUNTDOWN + CALENDAR + LOCATION -->
+  <section class="cd-sec">
+    <div class="cd-title">Countdown</div>
+    <div class="cd-sub">นับเวลาสู่วันงาน</div>
     <div class="countdown" id="countdown">
       <div class="cd-cell"><div class="cd-num" id="cd-d">00</div><div class="cd-label">วัน</div></div>
-      <div class="cd-sep">:</div>
       <div class="cd-cell"><div class="cd-num" id="cd-h">00</div><div class="cd-label">ชั่วโมง</div></div>
-      <div class="cd-sep">:</div>
       <div class="cd-cell"><div class="cd-num" id="cd-m">00</div><div class="cd-label">นาที</div></div>
-      <div class="cd-sep">:</div>
       <div class="cd-cell"><div class="cd-num" id="cd-s">00</div><div class="cd-label">วินาที</div></div>
     </div>
-    <div class="quote">"ระหว่างทางที่ผ่านมา<br>มีเธอเดินเคียงข้างเสมอ<br>และทางข้างหน้า ก็อยากให้เป็นเช่นนั้นตลอดไป"</div>
-  </section>
 
-  <!-- SCHEDULE -->
-  <section class="schedule">
-    <div class="section-head">
-      <div class="eyebrow">กำหนดการ</div>
-      <div class="section-title display">พิธีมงคลสมรส</div>
+    <div class="date-row">
+      <span class="weekday">อาทิตย์</span>
+      <span class="accent-num">18</span>
+      <span class="year">ตุลาคม 2026</span>
     </div>
-    <div class="timeline">
-      <div class="t-item">
-        <div class="t-time accent-num">07:00</div>
-        <div class="t-title display">พิธีสงฆ์ &amp; ตักบาตร</div>
-        <div class="t-desc">ณ บริเวณหน้าบ้านเจ้าบ่าว</div>
-      </div>
-      <div class="t-item">
-        <div class="t-time accent-num">09:09</div>
-        <div class="t-title display">พิธีหมั้น &amp; สู่ขอ</div>
-        <div class="t-desc">ขบวนขันหมากเคลื่อนเข้าสู่บริเวณงาน</div>
-      </div>
-      <div class="t-item">
-        <div class="t-time accent-num">10:30</div>
-        <div class="t-title display">พิธีรดน้ำสังข์</div>
-        <div class="t-desc">ขอเชิญร่วมอวยพรคู่บ่าวสาว</div>
-      </div>
-      <div class="t-item">
-        <div class="t-time accent-num">18:00</div>
-        <div class="t-title display">งานเลี้ยงฉลองมงคลสมรส</div>
-        <div class="t-desc">ณ ห้องบอลรูม โรงแรมริมแม่น้ำ</div>
-      </div>
-    </div>
-  </section>
 
-  <!-- LOCATION -->
-  <section class="location">
-    <div class="eyebrow">สถานที่</div>
-    <div class="map-box">
-      <svg class="map-pin" viewBox="0 0 24 24" fill="none">
-        <path d="M12 2C7.6 2 4 5.6 4 10c0 5.5 8 12 8 12s8-6.5 8-12c0-4.4-3.6-8-8-8z" stroke="#5C2A2A" stroke-width="1.4"/>
-        <circle cx="12" cy="10" r="2.6" fill="#B8862C"/>
-      </svg>
+    <div class="cal">
+      <div class="cal-head"><div>อา</div><div>จ</div><div>อ</div><div>พ</div><div>พฤ</div><div>ศ</div><div>ส</div></div>
+      <div class="cal-row"><div class="muted">27</div><div class="muted">28</div><div class="muted">29</div><div class="muted">30</div><div>1</div><div>2</div><div>3</div></div>
+      <div class="cal-row"><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div></div>
+      <div class="cal-row"><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div></div>
+      <div class="cal-row"><div class="today">18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div></div>
+      <div class="cal-row"><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div></div>
     </div>
-    <div class="venue-name display">โรงแรมริมแม่น้ำ แกรนด์บอลรูม</div>
-    <div class="venue-addr">123 ถนนเจริญกรุง แขวงบางรัก<br>เขตบางรัก กรุงเทพฯ 10500</div>
-    <a class="map-btn" href="#">เปิดแผนที่นำทาง →</a>
-  </section>
 
-  <!-- GALLERY -->
-  <section class="gallery">
-    <div class="section-head">
-      <div class="eyebrow">Our Story</div>
-      <div class="section-title display">ภาพความทรงจำ</div>
-    </div>
-    <div class="grid">
-      <div></div><div></div><div></div>
-      <div></div><div></div><div></div>
-    </div>
-    <div class="gallery-note">— ตัวอย่างตำแหน่งรูปภาพ เปลี่ยนเป็นรูปจริงได้ —</div>
+    <div class="time-banner">ร่วมรับประทานอาหาร ตั้งแต่เวลา 09:00 - 16:00 น.</div>
+
+    <div class="venue-name">ร้านทองโซเฟีย</div>
+    <div class="venue-addr">218 ถ.สุขยางค์ ม.2 ต.บันนังสตา<br>อ.บันนังสตา จ.ยะลา 95130</div>
+    <a class="maps-btn" href="#">Google Maps</a>
+    <div class="map-box"></div>
   </section>
 
   <!-- GUESTBOOK -->
-  <section class="guestbook">
+  <section class="gb-sec">
     <div class="gb-inner">
-      <div class="section-head">
-        <div class="eyebrow">Guestbook</div>
-        <div class="section-title display">ร่วมส่งคำอวยพร</div>
-      </div>
+      <svg class="envelope-icon" viewBox="0 0 64 64" fill="none">
+        <rect x="6" y="16" width="52" height="36" rx="3" stroke="#FBF3EA" stroke-width="2"/>
+        <path d="M6 18 L32 40 L58 18" stroke="#FBF3EA" stroke-width="2"/>
+      </svg>
+      <div class="gb-title">Send Us</div>
+      <div class="gb-sub">Your Prayers &amp; Wishes — ร่วมส่งคำอวยพรให้เรา</div>
+
       <div class="gb-form">
-        <input type="text" id="gbName" placeholder="ชื่อของคุณ" maxlength="40">
-        <textarea id="gbMsg" placeholder="เขียนคำอวยพรให้คู่บ่าวสาว..." maxlength="240"></textarea>
-        <button class="gb-submit" id="gbSubmit">ส่งคำอวยพร</button>
+        <input type="text" id="gbName" placeholder="ชื่อ" maxlength="40">
+        <textarea id="gbMsg" placeholder="คำอวยพร" maxlength="240"></textarea>
+        <button class="gb-submit" id="gbSubmit">Sent</button>
         <div class="gb-status" id="gbStatus"></div>
       </div>
+
+      <div class="gb-count-card">
+        <div class="gb-count-label">รวมคำอวยพรและดุอา</div>
+        <div class="gb-count-num" id="gbCount">0</div>
+      </div>
+
       <div class="gb-list" id="gbList">
         <div class="gb-empty">กำลังโหลดคำอวยพร...</div>
       </div>
     </div>
+    <footer>ด้วยรักและบารอกะฮ์ 🤍</footer>
   </section>
-
-  <footer>ด้วยรักและขอบคุณที่เป็นส่วนหนึ่งของวันสำคัญนี้ 🤍</footer>
 
 </div>
 
 <script>
-  // ---- scroll-linked thread knot ----
-  const scroller = document.getElementById('scroller');
-  const knot = document.getElementById('threadKnot');
-  function updateKnot(){
-    const max = scroller.scrollHeight - scroller.clientHeight;
-    const pct = max > 0 ? (scroller.scrollTop / max) * 100 : 0;
-    knot.style.top = pct + '%';
-  }
-  scroller.addEventListener('scroll', updateKnot);
-  updateKnot();
-
   // ---- countdown ----
-  const weddingDate = new Date('2027-02-14T07:00:00+07:00').getTime();
+  const weddingDate = new Date('2026-10-18T09:00:00+07:00').getTime();
   function tick(){
     const now = Date.now();
     let diff = weddingDate - now;
@@ -508,70 +378,72 @@
   tick();
   setInterval(tick, 1000);
 
-  // ⚠️ แก้ URL นี้เป็นลิงก์ Web App ที่ได้จากขั้นตอน Deploy
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyaSB2YGuClg9L-hiVhzGJt-vXrUoj95elRjroKjph55GzQgeUgvr6bRzJSRrToAHTW/exec";
+  // ---- guestbook ----
+  // ⚠️ แก้ URL นี้เป็นลิงก์ Web App ที่ได้จากขั้นตอน Deploy Google Apps Script
+  const SCRIPT_URL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
 
-const listEl = document.getElementById('gbList');
-const statusEl = document.getElementById('gbStatus');
-const submitBtn = document.getElementById('gbSubmit');
-const nameInput = document.getElementById('gbName');
-const msgInput = document.getElementById('gbMsg');
+  const listEl = document.getElementById('gbList');
+  const countEl = document.getElementById('gbCount');
+  const statusEl = document.getElementById('gbStatus');
+  const submitBtn = document.getElementById('gbSubmit');
+  const nameInput = document.getElementById('gbName');
+  const msgInput = document.getElementById('gbMsg');
 
-async function loadWishes(){
-  try{
-    const res = await fetch(SCRIPT_URL);
-    const data = await res.json();
-    renderWishes(data.wishes || []);
-  }catch(e){
-    listEl.innerHTML = '<div class="gb-empty">โหลดคำอวยพรไม่สำเร็จ</div>';
+  async function loadWishes(){
+    try{
+      const res = await fetch(SCRIPT_URL);
+      const data = await res.json();
+      renderWishes(data.wishes || []);
+    }catch(e){
+      listEl.innerHTML = '<div class="gb-empty">ยังไม่มีคำอวยพร เป็นคนแรกเลยสิ 🌸</div>';
+      countEl.textContent = '0';
+    }
   }
-}
 
-function renderWishes(wishes){
-  if(!wishes.length){
-    listEl.innerHTML = '<div class="gb-empty">ยังไม่มีคำอวยพร เป็นคนแรกเลยสิ 🌸</div>';
-    return;
+  function renderWishes(wishes){
+    countEl.textContent = wishes.length;
+    if(!wishes.length){
+      listEl.innerHTML = '<div class="gb-empty">ยังไม่มีคำอวยพร เป็นคนแรกเลยสิ 🌸</div>';
+      return;
+    }
+    // เรียงตามลำดับที่ส่งเข้ามา ล่าสุดอยู่บนสุด (เหมือนตัวอย่าง index เดิม)
+    listEl.innerHTML = wishes.slice().reverse().map(w => `
+      <div class="gb-msg">
+        <div class="from">${escapeHtml(w.name)}</div>
+        <div class="text">${escapeHtml(w.message)}</div>
+      </div>
+    `).join('');
   }
-  listEl.innerHTML = wishes.slice().reverse().map(w => `
-    <div class="gb-msg">
-      <div class="from">${escapeHtml(w.name)}</div>
-      <div class="text">${escapeHtml(w.message)}</div>
-    </div>
-  `).join('');
-}
 
-function escapeHtml(str){
-  const div = document.createElement('div');
-  div.textContent = str;
-  return div.innerHTML;
-}
-
-submitBtn.addEventListener('click', async () => {
-  const name = nameInput.value.trim();
-  const message = msgInput.value.trim();
-  if(!name || !message){
-    statusEl.textContent = 'กรุณากรอกชื่อและคำอวยพร';
-    return;
+  function escapeHtml(str){
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
   }
-  submitBtn.disabled = true;
-  statusEl.textContent = 'กำลังส่ง...';
-  try{
-    await fetch(SCRIPT_URL, {
-      method: 'POST',
-      body: JSON.stringify({ name, message })
-    });
-    nameInput.value = '';
-    msgInput.value = '';
-    statusEl.textContent = 'ขอบคุณสำหรับคำอวยพร 🤍';
-    loadWishes(); // โหลดใหม่เพื่อแสดงข้อความล่าสุด
-  }catch(e){
-    statusEl.textContent = 'ส่งไม่สำเร็จ ลองอีกครั้ง';
-  }finally{
-    submitBtn.disabled = false;
-  }
-});
 
-loadWishes();
+  submitBtn.addEventListener('click', async () => {
+    const name = nameInput.value.trim();
+    const message = msgInput.value.trim();
+    if(!name || !message){
+      statusEl.textContent = 'กรุณากรอกชื่อและคำอวยพร';
+      return;
+    }
+    submitBtn.disabled = true;
+    statusEl.textContent = 'กำลังส่ง...';
+    try{
+      await fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify({ name, message }) });
+      nameInput.value = '';
+      msgInput.value = '';
+      statusEl.textContent = 'ขอบคุณสำหรับคำอวยพร 🤍';
+      loadWishes();
+    }catch(e){
+      statusEl.textContent = 'ส่งไม่สำเร็จ ลองอีกครั้ง';
+    }finally{
+      submitBtn.disabled = false;
+    }
+  });
+
+  loadWishes();
 </script>
 
 </body>
